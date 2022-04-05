@@ -48,6 +48,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend
             }
 
             var serializedContent = this.adaptiveCardCreator.CreateAdaptiveCard(notification).ToJson();
+            serializedContent = serializedContent.Replace("\"altText\": \"\"", "\"msTeams\":{\"allowExpand\": true}");
 
             var sendingNotification = new SendingNotificationDataEntity
             {
